@@ -1,0 +1,7 @@
+Flask==3.0.3        # compatible with Python 3.10
+numpy==1.26.4       # last version that works with Python 3.10
+scikit-learn==1.6.1
+
+xgboost
+gunicorn==23.0.0
+pandas==2.2.3
