@@ -140,7 +140,28 @@ Run Flask API locally:
 <img width="931" height="193" alt="Screenshot from 2025-11-17 22-58-35" src="https://github.com/user-attachments/assets/7854d516-ca57-442b-b0a4-fa148b14ead7" />
 
 
-                                 
-                                              
-                                
+ 🐳 Docker Containerization
+
+The project is containerized using Docker, which ensures a consistent environment across development, testing, and deployment. Docker allows the application to run with all dependencies pre-installed and isolates it from your system’s Python environment.
+
+Steps to Run the App with Docker
+
+Build the Docker Image
+Build the project image from the Dockerfile:
+                                      
+              sudo docker build -t cardio-predictor .
+Run the Docker Container
+Start the container and expose port 9698:
+                                               
+                                               sudo docker run -p 9698:9698 cardio-predictor
+
+  Test the Application
+Send a request to the service using:
+
+                                  python predict-test.py
+
+<img width="1101" height="158" alt="Screenshot from 2025-11-18 00-40-09" src="https://github.com/user-attachments/assets/b34ccefe-5ea9-45ea-aff5-252623cf4253" />
+<img width="919" height="124" alt="Screenshot from 2025-11-18 00-41-25" src="https://github.com/user-attachments/assets/cbcea4af-6b1b-49fc-88b6-3cb8597f3c39" />
+
+                                  
  
