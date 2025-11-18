@@ -9,6 +9,15 @@ with open(model_file, 'rb') as f_in:
     dv, model = pickle.load(f_in)
  
 app = Flask('Cardiovascular_Disease_Prediction')
+
+ 
+ #NEW HOME ROUTE
+@app.route('/', methods=['GET'])
+def home():
+    return jsonify({
+        "message": "Cardiovascular Disease Prediction API is running.",
+        "usage": "Send POST request to /predict with patient data."
+    })
  
 @app.route('/predict', methods=['POST'])
 def predict():
