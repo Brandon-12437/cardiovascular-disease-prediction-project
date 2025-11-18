@@ -163,5 +163,20 @@ Send a request to the service using:
 <img width="1101" height="158" alt="Screenshot from 2025-11-18 00-40-09" src="https://github.com/user-attachments/assets/b34ccefe-5ea9-45ea-aff5-252623cf4253" />
 <img width="919" height="124" alt="Screenshot from 2025-11-18 00-41-25" src="https://github.com/user-attachments/assets/cbcea4af-6b1b-49fc-88b6-3cb8597f3c39" />
 
+
+🚀 CLOUD DEPLOYMENT (Render)
+
+This project is deployed on Render, allowing users to make real-time cardiovascular disease predictions through a publicly accessible API endpoint.
+
+Render handles the infrastructure, builds the Docker image, and hosts the Flask API without requiring any manual server setup.
                                   
- 
+🌐 Live API Endpoint
+
+The model is live and accessible at: 
+
+                                      https://cardiovascular-disease-prediction-project.onrender.com
+
+4️⃣ Test the Deployed API
+
+<img width="1469" height="349" alt="Screenshot from 2025-11-18 18-46-28" src="https://github.com/user-attachments/assets/432800c0-4a7c-4e37-89db-5659cc55d7bd" />
+
