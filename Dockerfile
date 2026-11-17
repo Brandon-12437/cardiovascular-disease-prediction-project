@@ -21,8 +21,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Expose Flask port
-EXPOSE 9698
-
-# Start the app
-CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:9698", "predict:app"]
+EXPOSE 10000
+CMD ["sh", "-c", "exec gunicorn -w 1 -b 0.0.0.0:${PORT:-10000} predict:app"]
 
