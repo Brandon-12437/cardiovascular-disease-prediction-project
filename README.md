@@ -117,12 +117,12 @@ Build the project image from the Dockerfile:
 Run the Docker Container
 Start the container and expose port 9698:
                                                
-                                               sudo docker run -p 9698:9698 cardio-predictor
+              sudo docker run -p 9698:9698 cardio-predictor
 
  ### Test the Application
 Send a request to the service using:
 
-                                  python predict-test.py
+               python predict-test.py
 
 <img width="1101" height="158" alt="Screenshot from 2025-11-18 00-40-09" src="https://github.com/user-attachments/assets/b34ccefe-5ea9-45ea-aff5-252623cf4253" />
 <img width="919" height="124" alt="Screenshot from 2025-11-18 00-41-25" src="https://github.com/user-attachments/assets/cbcea4af-6b1b-49fc-88b6-3cb8597f3c39" />
@@ -138,7 +138,7 @@ Render handles the infrastructure, builds the Docker image, and hosts the Flask 
 
 The model is live and accessible at: 
 
-                                      https://cardiovascular-disease-prediction-project.onrender.com
+                 https://cardiovascular-disease-prediction-project.onrender.com
 
 ### Test the Deployed API
 
