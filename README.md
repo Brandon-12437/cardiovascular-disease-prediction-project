@@ -103,30 +103,83 @@ Run Flask API locally:
 <img width="1259" height="104" alt="Screenshot from 2025-11-17 22-55-17" src="https://github.com/user-attachments/assets/50ee563c-714a-4944-a573-c51409de5803" />
 <img width="931" height="193" alt="Screenshot from 2025-11-17 22-58-35" src="https://github.com/user-attachments/assets/7854d516-ca57-442b-b0a4-fa148b14ead7" />
 
+## CONTAINERIZATION
 
-#### Docker Containerization
+The Cardiovascular Disease Prediction System is containerized using Docker to provide a consistent and reproducible environment for running the Flask API.
 
-The project is containerized using Docker, which ensures a consistent environment across development, testing, and deployment. Docker allows the application to run with all dependencies pre-installed and isolates it from your system’s Python environment.
+The Docker image packages the application, trained Random Forest model, Python dependencies, and API configuration into a single deployable container.
 
-Steps to Run the App with Docker
+### Docker Configuration
 
-Build the Docker Image
-Build the project image from the Dockerfile:
-                                      
-              sudo docker build -t cardio-predictor .
-Run the Docker Container
-Start the container and expose port 9698:
-                                               
-              sudo docker run -p 9698:9698 cardio-predictor
+The application uses a Python 3.12-slim base image.
 
- ### Test the Application
-Send a request to the service using:
+The Docker environment installs the required dependencies specified in `requirements.txt`, including Flask, NumPy, and Scikit-learn.
 
-               python predict-test.py
+The application is served using Gunicorn as the production WSGI server.
 
-<img width="1101" height="158" alt="Screenshot from 2025-11-18 00-40-09" src="https://github.com/user-attachments/assets/b34ccefe-5ea9-45ea-aff5-252623cf4253" />
-<img width="919" height="124" alt="Screenshot from 2025-11-18 00-41-25" src="https://github.com/user-attachments/assets/cbcea4af-6b1b-49fc-88b6-3cb8597f3c39" />
+### Building the Docker Image
 
+The Docker image was built locally using the following command:
+
+                        docker build -t cardiovascular-predictor .
+                        
+### Running the Docker Container
+
+The container was started with port mapping to expose the Flask API on port 10000.
+
+       docker run --name cardiovascular-test --rm \
+       -p 10000:10000 \
+       -e PORT=10000 \
+       cardiovascular-predictor
+
+Gunicorn starts the Flask application and listens on 0.0.0.0:10000.
+
+<img width="800" alt="Docker Container Running" src="screenshots/docker-container-running.png" />Testing the API Locally
+The containerized API was tested locally to verify that the application starts correctly and can process prediction requests.
+
+API Health Check
+A GET request was sent to the root endpoint:
+
+                curl http://localhost:10000/
+
+The API returned the following response:
+
+          {
+              "message": "Cardiovascular Disease Prediction API is running.",  "usage": "Send POST request to /predict with patient data."
+          }
+
+
+A POST request containing sample patient information was submitted to the /predict endpoint.
+
+                   curl -X POST http://localhost:10000/predict \
+                    -H "Content-Type: application/json" \
+                   -d '{
+                          "age": 55,
+                          "sex": 1,
+                          "cp": "typical angina",
+                          "trestbps": 140,
+                          "chol": 250,
+                          "fbs": 0,
+                          "restecg": "normal",
+                          "thalch": 150,
+                          "exang": 0,
+                          "oldpeak": 1.0,
+                          "slope": "flat",
+                          "ca": 0,
+                          "thal": "normal",
+                          "dataset": "Cleveland",
+                          "id": 1
+                       }'
+
+The API successfully processed the request and returned:
+
+    {
+        "Cardiovascular_Disease_Prediction_probability": 0.3242835286690758,
+        "num": false
+     }
+
+This confirms that the serialized Random Forest model was successfully loaded and used to generate a prediction through the Flask API.
+The local Docker testing confirmed that the container builds successfully, the API starts correctly, and the prediction endpoint processes sample requests.                  
 
 ### CLOUD DEPLOYMENT (Render)
 
