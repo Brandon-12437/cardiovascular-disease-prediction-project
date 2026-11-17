@@ -1,17 +1,40 @@
+# CARDIOVASCULAR DISEASE PREDICTION SYSTEM
 
-                                                                      
-🫀 CARDIOVASCULAR DISEASE PREDICTION SYSTEM
+## PROJECT OVERVIEW
 
+Cardiovascular diseases are among the leading causes of mortality worldwide.
+Early identification of potential cardiovascular risk factors can support
+timely medical assessment and informed healthcare decisions.
 
- 🎯 EXECUTIVE SUMMARY
-This project delivers a production-ready cardiovascular disease prediction system that achieves 96.5% AUC on test data. The end-to-end solution includes:
+This project focuses on developing an end-to-end Machine Learning-based
+Cardiovascular Disease Prediction System using clinical and demographic
+patient data.
 
-~Machine Learning Pipeline: 4 models trained and optimized
-~REST API: Flask-based service with JSON I/O
-~Containerization: Docker for reproducible deployments
-`Cloud Hosting: Deployed on Railway with CI/CD
-~Scalability: Gunicorn WSGI server with 4 workers
+The system uses supervised machine learning algorithms to classify patients
+into two categories: cardiovascular disease and no cardiovascular disease.
 
+Four machine learning algorithms were implemented and evaluated:
+- Logistic Regression
+- Decision Tree
+- Random Forest
+- XGBoost
+
+The selected model is integrated into a Flask REST API, allowing users to
+submit patient information and receive prediction results through a
+JSON-based interface.
+
+The application is containerized using Docker and deployed to a cloud
+hosting platform, making the prediction service accessible remotely.
+
+### Key Features
+
+- **Machine Learning:** Development and evaluation of four classification models.
+- **Data Processing:** Data cleaning, categorical encoding and feature preparation.
+- **Model Selection:** Comparison of model performance to identify the best-performing model.
+- **REST API:** Flask-based prediction service.
+- **Containerization:** Docker-based application packaging.
+- **Cloud Deployment:** Hosting of the prediction API.
+- **Model Serving:** Gunicorn WSGI server for production application serving.
 📊 DATASET & FEATURE ENGINEERING
 Data Sources
 Primary Dataset: UCI Machine Learning Repository - Heart Disease Dataset
