@@ -1,5 +1,7 @@
-### CARDIOVASCULAR DISEASE PREDICTION
+## CARDIOVASCULAR DISEASE PREDICTION
+
 ## Problem Description
+
 Cardiovascular diseases are among the major causes of illness and death worldwide. Early identification of potential cardiovascular disease risk is important because it can support timely medical assessment and intervention.
 
 Identifying patterns in patient demographic information, clinical measurements, and diagnostic indicators can help explore the relationship between these factors and cardiovascular disease.
@@ -54,15 +56,8 @@ INSTALL DEPENDENCIES
                                 conda install flask pandas numpy scikit-learn=1.5.1 -y
                                  pip install xgboost gunicorn
 
-VERIFY INSTALLATION
 
-                              conda install flask pandas numpy scikit-learn=1.5.1 -y
-                                                                              
-                               pip install xgboost gunicorn
-
-
-
-📊DATA PREPARATION
+### DATA PREPARATION
 
 1. Dataset: cardiovascular_disease_cleaned(1).csv
 
@@ -79,7 +74,7 @@ b. One-hot encode categorical features
 c. Split data into train (60%), validation (20%), test (20%)
 
 
-🏋️‍♂️MODEL TRAINING
+### MODEL TRAINING
 
 ~Logistic Regression, Decision Tree, Random Forest, and XGBoost were trained.
 
@@ -89,27 +84,27 @@ c. Split data into train (60%), validation (20%), test (20%)
 
 ~Model saved as Random_Forest_Model.bin using pickle.
 
-i. 🏋️‍♂️ TRAINING THE MODEL
+### TRAINING THE MODEL
 
 Train the model and save it as a binary file:
 
                                 python train.py
 
-TESTING THE MODEL
+### TESTING THE MODEL
                                  
                                 Python predict-test.py 
 
 <img width="1682" height="243" alt="Screenshot from 2025-11-17 21-40-50" src="https://github.com/user-attachments/assets/180e418c-00a3-4a5e-b04f-ae4e56353e6c" />
 
 
-🚀 RUNNING THE WEB SERVICE
+### RUNNING THE WEB SERVICE
 
 Run Flask API locally:
 <img width="1259" height="104" alt="Screenshot from 2025-11-17 22-55-17" src="https://github.com/user-attachments/assets/50ee563c-714a-4944-a573-c51409de5803" />
 <img width="931" height="193" alt="Screenshot from 2025-11-17 22-58-35" src="https://github.com/user-attachments/assets/7854d516-ca57-442b-b0a4-fa148b14ead7" />
 
 
- 🐳 Docker Containerization
+#### Docker Containerization
 
 The project is containerized using Docker, which ensures a consistent environment across development, testing, and deployment. Docker allows the application to run with all dependencies pre-installed and isolates it from your system’s Python environment.
 
@@ -124,7 +119,7 @@ Start the container and expose port 9698:
                                                
                                                sudo docker run -p 9698:9698 cardio-predictor
 
-  Test the Application
+ ### Test the Application
 Send a request to the service using:
 
                                   python predict-test.py
@@ -133,19 +128,19 @@ Send a request to the service using:
 <img width="919" height="124" alt="Screenshot from 2025-11-18 00-41-25" src="https://github.com/user-attachments/assets/cbcea4af-6b1b-49fc-88b6-3cb8597f3c39" />
 
 
-🚀 CLOUD DEPLOYMENT (Render)
+### CLOUD DEPLOYMENT (Render)
 
 This project is deployed on Render, allowing users to make real-time cardiovascular disease predictions through a publicly accessible API endpoint.
 
 Render handles the infrastructure, builds the Docker image, and hosts the Flask API without requiring any manual server setup.
                                   
-🌐 Live API Endpoint
+### Live API Endpoint
 
 The model is live and accessible at: 
 
                                       https://cardiovascular-disease-prediction-project.onrender.com
 
-4️⃣ Test the Deployed API
+### Test the Deployed API
 
 <img width="1469" height="349" alt="Screenshot from 2025-11-18 18-46-28" src="https://github.com/user-attachments/assets/432800c0-4a7c-4e37-89db-5659cc55d7bd" />
 
