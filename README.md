@@ -26,20 +26,18 @@ The analysis included:
 - Examining relationships between patient characteristics and cardiovascular disease.
 - Visualizing numerical feature distributions.
 - Exploring correlations between clinical variables.
-# Key Observations
+### Key Observations
 The dataset contains demographic, clinical, and diagnostic information, including age, sex, resting blood pressure, cholesterol levels, maximum heart rate, exercise-induced angina, and other diagnostic indicators.
 
 The original target variable, num, represents different levels of cardiovascular disease presence. It was transformed into a binary classification target to distinguish between patients with and without cardiovascular disease.
 
 These findings guided the preprocessing and feature transformation stages before model development.
-DATA VISUALIZATION
-We will insert your actual EDA screenshots here.
+## DATA VISUALIZATION
 
-# INSTALLATION AND SETUP
+### INSTALLATION AND SETUP
 
-~Requirements: Python 3.11, Conda, Ubuntu or Linux terminal
-
-~Clone the repository 
+Requirements: Python 3.11, Conda, Ubuntu or Linux terminal
+Clone the repository 
                                  
                                  https://github.com/Brandon-12437/cardiovascular-disease-prediction-project.git
 
