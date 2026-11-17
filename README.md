@@ -33,6 +33,7 @@ The original target variable, num, represents different levels of cardiovascular
 
 These findings guided the preprocessing and feature transformation stages before model development.
 ## DATA VISUALIZATION
+<img width="700" alt="Heart Data Correlation Heatmap" src="screenshots/Screenshot%20from%202026-11-17%2010-41-09.png" />
 
 ### INSTALLATION AND SETUP
 
