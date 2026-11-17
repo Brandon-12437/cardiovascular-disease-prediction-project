@@ -1,96 +1,41 @@
-# CARDIOVASCULAR DISEASE PREDICTION SYSTEM
+### CARDIOVASCULAR DISEASE PREDICTION
+## Problem Description
+Cardiovascular diseases are among the major causes of illness and death worldwide. Early identification of potential cardiovascular disease risk is important because it can support timely medical assessment and intervention.
 
-## PROJECT OVERVIEW
+Identifying patterns in patient demographic information, clinical measurements, and diagnostic indicators can help explore the relationship between these factors and cardiovascular disease.
+The Solution
+The Cardiovascular Disease Prediction System addresses this problem by applying machine learning classification algorithms to estimate the likelihood of cardiovascular disease using patient-related data.
 
-Cardiovascular diseases are among the leading causes of mortality worldwide.
-Early identification of potential cardiovascular risk factors can support
-timely medical assessment and informed healthcare decisions.
+The system explores four classification algorithms: Logistic Regression, Decision Tree, Random Forest, and XGBoost.
 
-This project focuses on developing an end-to-end Machine Learning-based
-Cardiovascular Disease Prediction System using clinical and demographic
-patient data.
+The Random Forest Classifier was selected for the prediction application. The trained model and its associated DictVectorizer are serialized together using Python's Pickle module.
 
-The system uses supervised machine learning algorithms to classify patients
-into two categories: cardiovascular disease and no cardiovascular disease.
+The model is exposed through a Flask REST API, allowing applications to submit patient information in JSON format and receive a prediction probability and classification result.
+Exploratory Data Analysis
+Exploratory Data Analysis (EDA) was performed to understand the structure of the cardiovascular disease dataset, examine the distribution of patient characteristics, and investigate relationships between clinical features and the target variable.
 
-Four machine learning algorithms were implemented and evaluated:
-- Logistic Regression
-- Decision Tree
-- Random Forest
-- XGBoost
+The dataset contains 919 records and 16 columns, consisting of 15 input features and the target variable num.
+EDA Steps
+The analysis included:
+- Inspecting the shape and structure of the dataset.
+- Checking for missing values.
+- Examining duplicate records.
+- Inspecting data types and feature distributions.
+- Calculating descriptive statistics.
+- Analyzing the distribution of the target variable.
+- Examining relationships between patient characteristics and cardiovascular disease.
+- Visualizing numerical feature distributions.
+- Exploring correlations between clinical variables.
+# Key Observations
+The dataset contains demographic, clinical, and diagnostic information, including age, sex, resting blood pressure, cholesterol levels, maximum heart rate, exercise-induced angina, and other diagnostic indicators.
 
-The selected model is integrated into a Flask REST API, allowing users to
-submit patient information and receive prediction results through a
-JSON-based interface.
+The original target variable, num, represents different levels of cardiovascular disease presence. It was transformed into a binary classification target to distinguish between patients with and without cardiovascular disease.
 
-The application is containerized using Docker and deployed to a cloud
-hosting platform, making the prediction service accessible remotely.
+These findings guided the preprocessing and feature transformation stages before model development.
+DATA VISUALIZATION
+We will insert your actual EDA screenshots here.
 
-### Key Features
-
-- **Machine Learning:** Development and evaluation of four classification models.
-- **Data Processing:** Data cleaning, categorical encoding and feature preparation.
-- **Model Selection:** Comparison of model performance to identify the best-performing model.
-- **REST API:** Flask-based prediction service.
-- **Containerization:** Docker-based application packaging.
-- **Cloud Deployment:** Hosting of the prediction API.
-- **Model Serving:** Gunicorn WSGI server for production application serving.
-📊 DATASET & FEATURE ENGINEERING
-Data Sources
-Primary Dataset: UCI Machine Learning Repository - Heart Disease Dataset
-Combined Sources:
-~Cleveland
-~Hungary
-~Switzerland
-~VA Long Beach
-
-DATASET STATISTICS
-Total Patients: 
-Features: 16 (15 predictors + 1 target)
-Missing Values: 0 (pre-cleaned)
-Class Distribution:
-  - No Disease (0):411 patients (55.277%)
-  - Disease (1): 508 patients (44.722%)
-  
-Split Ratio:
-  - Training: 551 samples (60%)
-  - Validation:184samples (20%)
-  - Test: 184 samples (20%)
-
-    
-                             FEATURE DICTIONARY
-DEMOGRAPHIC FEATURES
-| Feature                  | Type       | Description            | Clinical Significance                 |
-|--------------------------|-----------|-----------------------|--------------------------------------|
-| age                      | Continuous| Patient age (29-77 years) | Risk increases with age; >65 high risk |
-| sex                      | Binary    | 0 = Female, 1 = Male  | Males 2x higher CVD risk             |
-
-CLINICAL MEASUREMENTS
-| Feature    | Type       | Description                  | Normal Range        | Risk Threshold            |
-|-----------|------------|------------------------------|------------------|--------------------------|
-| trestbps  | Continuous | Resting blood pressure (mm Hg)| 90-120           | >140 (hypertension)      |
-| chol      | Continuous | Serum cholesterol (mg/dl)     | <200             | >240 (high risk)          |
-| thalch    | Continuous | Max heart rate achieved       | Age-dependent    | <(220-age) × 0.85         |
-| oldpeak   | Continuous | ST depression (mm)            | 0                | >2.0 (ischemia)           |
-
-DIAGNOSTIC TESTS
-
-| Feature   | Type       | Values          | Description                                                                 |
-|-----------|------------|----------------|----------------------------------------------------------------------------|
-| cp        | Categorical| 0-3            | Chest pain type: 0=typical angina, 1=atypical, 2=non-anginal, 3=asymptomatic |
-| fbs       | Binary     | 0/1            | Fasting blood sugar >120 mg/dl (1=true)                                    |
-| restecg   | Categorical| 0-2            | Resting ECG: 0=normal, 1=ST-T abnormality, 2=LV hypertrophy                 |
-| exang     | Binary     | 0/1            | Exercise-induced angina (1=yes)                                            |
-| slope     | Categorical| 0-2            | Peak exercise ST slope: 0=upsloping, 1=flat, 2=downsloping                  |
-| ca        | Categorical| 0-3            | Number of major vessels colored by fluoroscopy                              |
-| thal      | Categorical| 3,6,7          | 3=normal, 6=fixed defect, 7=reversible defect                               |
-
-TARGET VARIABLE
-| Feature | Type   | Description              | Distribution       |
-|---------|--------|--------------------------|------------------|
-| num     | Binary | 0=No disease, 1=Disease | 55.277% / 44.722%    |
-
-⚙️INSTALLATION AND SETUP
+# INSTALLATION AND SETUP
 
 ~Requirements: Python 3.11, Conda, Ubuntu or Linux terminal
 
